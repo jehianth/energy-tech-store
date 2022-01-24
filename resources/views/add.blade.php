@@ -15,10 +15,10 @@
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     </head>
     <body>
-        <nav class="navbar">
+        <nav class="navbar mt-3">
             <div class="container">
                 <a class="navbar-brand" href="/product">
-                    <img src="assets/logo.png" alt="" width="151" height="60">
+                    <img src="/assets/logo.png" alt="" width="251" height="100">
                 </a>
             </div>
         </nav>
@@ -33,19 +33,47 @@
                             </h3>
                         </div>
                         <div class="card-body">
+                            @if ($errors->any())
+                                <div class="alert alert-danger">
+                                    <ul>
+                                        @foreach ($errors->all() as $error)
+                                            <li>{{ $error }}</li>
+                                        @endforeach
+                                    </ul>
+                                </div>
+                            @endif
                             <form action="/insert" method="POST" enctype="multipart/form-data">
                                 @csrf
                                 <div class="mb-3">
                                     <label for="name" class="form-label">Product Name</label>
-                                    <input type="text" class="form-control" name="name" id="name">
+                                    <input type="text" class="form-control" name="name" id="name" @error('name')
+                                    is-invalid @enderror>
+                                    @error('name')
+                                        <div class="invalid-feedback">
+                                            {{ $message }}
+                                        </div>
+                                    @enderror
                                 </div>
                                 <div class="mb-3">
                                     <label for="photo" class="form-label">Product Photo</label>
-                                    <input type="file" class="form-control" name="photo" id="photo">
+                                    <img class="img-preview img-fluid mb-3 col-sm-5">
+                                    <input type="file" class="form-control" name="photo" id="photo" onchange="previewImage()" @error('photo')
+                                    is-invalid @enderror>
+                                    @error('photo')
+                                    <div class="invalid-feedback">
+                                        {{ $message }}
+                                    </div>
+                                @enderror
                                 </div>
                                 <div class="mb-3">
                                     <label for="type" class="form-label">Product Type</label>
-                                    <select class="form-control" name="type" id="type" aria-label="Default select example">
+                                    <select class="form-control" name="type" id="type" aria-label="Default select example" @error('type')
+                                    is-invalid @enderror>
+                                    @error('type')
+                                    <div class="invalid-feedback">
+                                        {{ $message }}
+                                    </div>
+                                    @enderror
                                         <option value="" disabled selected>Choose the Product Type</option>
                                         <option value="GPU">GPU</option>
                                         <option value="Monitor">Monitor</option>
@@ -66,11 +94,23 @@
                                 </div>
                                 <div class="mb-3">
                                     <label for="entrydate" class="form-label">Entry Date</label>
-                                    <input type="date" class="form-control" name="entrydate" id="entrydate">
+                                    <input type="date" class="form-control" name="entrydate" id="entrydate" @error('entrydate')
+                                    is-invalid @enderror>
+                                    @error('entrydate')
+                                    <div class="invalid-feedback">
+                                        {{ $message }}
+                                    </div>
+                                    @enderror
                                 </div>
                                 <div class="mb-3">
                                     <label for="stock" class="form-label">Stock</label>
-                                    <input type="number" class="form-control" name="stock" id="stock">
+                                    <input type="number" class="form-control" name="stock" id="stock" @error('stock')
+                                    is-invalid @enderror>
+                                    @error('stock')
+                                    <div class="invalid-feedback">
+                                        {{ $message }}
+                                    </div>
+                                    @enderror
                                 </div>
                                 <button type="submit" class="btn btn-primary">Add Product</button>
                             </form>
@@ -91,4 +131,16 @@
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.min.js" integrity="sha384-QJHtvGhmr9XOIpI6YVutG+2QOK9T+ZnN4kzFN1RtK3zEFEIsxhlmWl5/YESvpZ13" crossorigin="anonymous"></script>
         -->
     </body>
+    <script>
+        function previewImage(){
+            const image = document.querySelector('#photo');
+            const imgPreview = document.querySelector('.img-preview');
+            imgPreview.style.display = 'block';
+            const oFReader = new FileReader();
+            oFReader.readAsDataURL(image.files[0]);
+            oFReader.onload = function(oFREvent){
+                imgPreview.src = oFREvent.target.result;
+            }
+        }
+    </script>
 </html>

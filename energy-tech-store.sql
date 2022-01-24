@@ -2,10 +2,10 @@
 -- version 5.1.1
 -- https://www.phpmyadmin.net/
 --
--- Host: 127.0.0.1:4306
--- Generation Time: Jan 23, 2022 at 04:15 PM
--- Server version: 10.4.21-MariaDB
--- PHP Version: 8.0.12
+-- Host: 127.0.0.1
+-- Generation Time: Jan 24, 2022 at 09:58 PM
+-- Server version: 10.4.22-MariaDB
+-- PHP Version: 8.1.2
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -54,11 +54,11 @@ CREATE TABLE `migrations` (
 --
 
 INSERT INTO `migrations` (`id`, `migration`, `batch`) VALUES
-(6, '2014_10_12_000000_create_users_table', 1),
-(7, '2014_10_12_100000_create_password_resets_table', 1),
-(8, '2019_08_19_000000_create_failed_jobs_table', 1),
-(9, '2019_12_14_000001_create_personal_access_tokens_table', 1),
-(10, '2022_01_22_125759_create_products_table', 1);
+(1, '2014_10_12_000000_create_users_table', 1),
+(2, '2014_10_12_100000_create_password_resets_table', 1),
+(3, '2019_08_19_000000_create_failed_jobs_table', 1),
+(4, '2019_12_14_000001_create_personal_access_tokens_table', 1),
+(5, '2022_01_22_125759_create_products_table', 1);
 
 -- --------------------------------------------------------
 
@@ -112,18 +112,9 @@ CREATE TABLE `products` (
 --
 
 INSERT INTO `products` (`id`, `name`, `photo`, `type`, `entrydate`, `stock`, `created_at`, `updated_at`) VALUES
-(1, 'konto lodon', 'download.jpg', 'GPU', '2022-01-28', 425, '2022-01-22 19:12:34', '2022-01-22 19:12:34'),
-(2, 'Nvidia GeForce RTX 3080 Ti', 'rtx3080ti.jpg', 'GPU', '2022-01-21', 32, '2022-01-22 20:18:38', '2022-01-22 20:18:38'),
-(3, 'AMD Radeon RX 6900 XT', 'amdradeonrx6900xt.jpg', 'GPU', '2022-01-14', 778, '2022-01-22 20:19:05', '2022-01-22 20:19:05'),
-(4, 'konto lodon', 'download.jpg', 'GPU', '2022-01-28', 425, '2022-01-22 19:12:34', '2022-01-22 19:12:34'),
-(5, 'Nvidia GeForce RTX 3080 Ti', 'rtx3080ti.jpg', 'GPU', '2022-01-21', 32, '2022-01-22 20:18:38', '2022-01-22 20:18:38'),
-(6, 'AMD Radeon RX 6900 XT', 'amdradeonrx6900xt.jpg', 'GPU', '2022-01-14', 778, '2022-01-22 20:19:05', '2022-01-22 20:19:05'),
-(7, 'konto lodon', 'download.jpg', 'GPU', '2022-01-28', 425, '2022-01-22 19:12:34', '2022-01-22 19:12:34'),
-(8, 'Nvidia GeForce RTX 3080 Ti', 'rtx3080ti.jpg', 'GPU', '2022-01-21', 32, '2022-01-22 20:18:38', '2022-01-22 20:18:38'),
-(9, 'AMD Radeon RX 6900 XT', 'amdradeonrx6900xt.jpg', 'GPU', '2022-01-14', 778, '2022-01-22 20:19:05', '2022-01-22 20:19:05'),
-(10, 'konto lodon', 'download.jpg', 'GPU', '2022-01-28', 425, '2022-01-22 19:12:34', '2022-01-22 19:12:34'),
-(11, 'Nvidia GeForce RTX 3080 Ti', 'rtx3080ti.jpg', 'GPU', '2022-01-21', 32, '2022-01-22 20:18:38', '2022-01-22 20:18:38'),
-(12, 'AMD Radeon RX 6900 XT', 'amdradeonrx6900xt.jpg', 'GPU', '2022-01-14', 778, '2022-01-22 20:19:05', '2022-01-22 20:19:05');
+(4, 'Nvidia GeForce RTX 3080 Ti', 'rtx3080ti.jpg', 'GPU', '2022-01-14', 32, '2022-01-24 13:56:11', '2022-01-24 13:56:11'),
+(5, 'Nvidia', 'rtx3080ti.jpg', 'GPU', '2022-01-13', 32, '2022-01-24 13:56:20', '2022-01-24 13:56:20'),
+(6, 'Nvidia', 'rtx3080ti.jpg', 'GPU', '2022-01-13', 32, '2022-01-24 13:57:37', '2022-01-24 13:57:37');
 
 -- --------------------------------------------------------
 
@@ -200,7 +191,7 @@ ALTER TABLE `failed_jobs`
 -- AUTO_INCREMENT for table `migrations`
 --
 ALTER TABLE `migrations`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
 -- AUTO_INCREMENT for table `personal_access_tokens`
@@ -212,7 +203,7 @@ ALTER TABLE `personal_access_tokens`
 -- AUTO_INCREMENT for table `products`
 --
 ALTER TABLE `products`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
 -- AUTO_INCREMENT for table `users`

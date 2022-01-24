@@ -33,8 +33,36 @@
                             </form>
                         </div>
                     </div>
-                    <a href="/add" class="btn btn-success" style="float: right">Add Product <i class="fa fa-plus"></i> </a>
+                    <a href="/add" class="btn btn-primary" style="float: right;margin-right: 15px;border:2.5px solid;border-color:rgb(0, 0, 100)">Add Product <i class="fa fa-plus"></i> </a>
                     <a href="/exportpdf" class="btn btn-danger" style="float: right;margin-right: 15px;border:2.5px solid;border-color:rgb(100, 0, 0)">Export PDF <i class="fa fa-floppy-o"></i> </a>
+                    <a href="/exportexcel" class="btn btn-success" style="float: right;margin-right: 15px;border:2.5px solid;border-color:rgb(0, 100, 0)">Export Excel <i class="fa fa-download"></i> </a>
+                    <!-- Button trigger modal -->
+                    <button type="button" class="btn btn-success" style="float: right;margin-right: 15px;border:2.5px solid;border-color:rgb(0, 100, 0)" data-bs-toggle="modal" data-bs-target="#exampleModal">
+                        Import Excel <i class="fa fa-upload"></i>
+                    </button>
+                    <!-- Modal -->
+                    <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                        <div class="modal-dialog">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                <h5 class="modal-title" id="exampleModalLabel">Import Data Excel</h5>
+                                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                </div>
+                                <form action="/importexcel" method="POST" enctype="multipart/form-data">
+                                    @csrf
+                                    <div class="modal-body">
+                                        <div class="form-group">
+                                            <input type="file" name="file" required>
+                                        </div>
+                                    </div>
+                                        <div class="modal-footer">
+                                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
+                                            <button type="submit" class="btn btn-primary">Import</button>
+                                        </div>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
                 </div>
                 <div class="container table-responsive mt-5">
                     <div class="row">

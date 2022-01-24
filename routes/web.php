@@ -27,3 +27,5 @@ Route::post('/update/{id}',[ProductController::class, 'update'])->name('update')
 Route::get('/delete/{id}',[ProductController::class, 'delete'])->name('delete');
 
 Route::get('/exportpdf',[ProductController::class, 'exportpdf'])->name('exportpdf');
+Route::get('/exportexcel',[ProductController::class, 'exportexcel'])->name('exportexcel');
+Route::post('/importexcel',[ProductController::class, 'importexcel'])->name('importexcel');
